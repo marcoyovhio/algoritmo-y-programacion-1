@@ -1,0 +1,28 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+
+using namespace std;
+
+void main()
+{
+    float a,b,c,d,e,f,g,x,y;
+    cout<<"Ingrese a";
+    cin>> a;
+    cout<<"Ingrese b";
+     cin>>b;
+     cout<<"Ingrese c";
+     cin>>c;
+     cout<<"Ingrese d";
+     cin>>d;
+     cout<<"Ingrese e";
+     cin>>e;
+     cout<<"Ingrese f";
+     cin>>f;
+     y=(d*c-a*f)/(d*b-a*e);
+     x=(c-b*y)/a;
+     cout<<"x="<<x<<endl;
+     cout<<"y="<<y<<endl;
+     _getch();
+}
