@@ -1,0 +1,105 @@
+Laboratorio Algoritmos
+Marco Yovhio Ortiz
+1 Generar la planilla de sueldo descontando IVA y AFP
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define salariominimo 1650
+#define TAM 100
+
+using namespace std;
+
+float calculoSalarioneto (float v,int tam);
+void mostrarVector(float v[],int tam);
+float promedio(float v[],int tam);
+void cargarVector(float v[],int tam);
+
+void main()
+{int n; float v[TAM];
+ cout<<"Ingrese el numero de empleados";
+ cin>>n;
+ cargarVector(v,n);
+ float t=promedio(v,n);
+ cout<<"el promedio es :"<<t;
+ _getch();
+}
+
+void cargarVector(float v[], int n)
+{float s=0,salariobruto=0,salarioneto;
+ for(int i=0;i<=n;i++)
+	{
+	   cout<<"Ingrese el salario bruto"<<endl<<"v["<<i<<"]=";
+	   cin>>v[i];
+	   if (v[i]>(2*salariominimo))
+			 salarioneto=calculoSalarioneto(v[i],n);
+	   else 
+			 salarioneto=v[i];
+	   cout<<"El salarioneto es :"<<salarioneto<<endl;
+		     s=salariobruto+salarioneto;
+	}
+	cout<<"El promedio es:"<<endl;
+	_getch();
+}
+
+float promedio (float v[],int n)
+{float s=0;
+ float t;
+ for (int i=0;i<n;i++)
+	{
+	   s=s+v[i];
+    }
+	t=s/n;
+	return t;
+} 
+
+float calculoSalarioneto(float v, int n)
+{float r;
+ r=v-v*0.251;
+ return r;
+}
+
+void mostrarVector(float v[],int n)
+{for(int i=0;i<n;i++)
+ cout<<"v["<<i<<"]="<<v[i]<<endl;
+}
+
+2 Ecuacion cuadratica
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+
+using namespace std;
+
+void main()
+{int a=0,b=0,c=0,interiorRaiz,primeraSolucion,segundaSolucion;
+ cout<<"Ingrese a: ";
+ cin>>a;
+ cout<<"Ingrese b: ";
+ cin>>b;
+ cout<<"Ingrese c: ";
+ cin>>c;
+ interiorRaiz=powf(b,2)-4*(a*c);
+ primeraSolucion=0;
+ segundaSolucion=0;
+ if(interiorRaiz<0)
+	{
+		cout<<"No tiene solucion.";
+	}
+ else
+	{
+        primeraSolucion = (-b+(interiorRaiz))/(2*a);
+        segundaSolucion = (-b-(interiorRaiz))/(2*a);
+        if(primeraSolucion == segundaSolucion)
+			{
+				cout<<"La solucion es: "<<primeraSolucion;
+			}
+        else
+			{
+				cout<<"La primera solucion es: "<<primeraSolucion;
+				cout<<"La segunda solucion es: "<<segundaSolucion;
+			}
+	}
+ getch();
+}
+
