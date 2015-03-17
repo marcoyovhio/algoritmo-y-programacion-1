@@ -1,0 +1,58 @@
+// tabla empresa.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include <string>
+#define tam 50
+
+using namespace std;
+void mostrarTabla(string a[],float b[], int n);
+void leerCliente(string a[], int n);
+void leerMonto(float a[],string b[],int n);
+
+void main()
+{float credito[tam];
+ string cliente[tam];
+ int n;
+ cout<<"ingrese numero de clientes: ";
+ cin>>n;
+ leerCliente(cliente,n);
+ leerMonto(credito,cliente,n);
+ mostrarTabla(cliente,credito,n);
+ _getch();
+}
+
+void leerMonto(float a[],string b[],int n)
+{for(int i=0;i<n;i++)
+	{
+		cout<<"ingrese monto de "<<b[i];
+		cin>>a[i];
+	}
+}
+
+void leerCliente(string a[], int n)
+{for(int i=0;i<n;i++)
+	{
+		int nc=i+1;
+		cout<<"ingrese el nombre del cliente: "<<nc;
+		cin.ignore();
+		getline(cin,a[i]);
+	}
+}
+
+void mostrarTabla(string a[],float b[], int n)
+{float tot=0;
+ cout<<"tabla de creditos\t"<<endl;
+ cout<<" N "<<"  cliente  "<<"  credito  "<<endl;
+ cout<<"-------------------------"<<endl;
+ for(int i=0;i<n;i++)
+	{
+		int nc=i+1;
+		cout<<nc<<"     "<<a[i]<<"      "<<b[i]<<endl;
+		tot=tot+b[i];
+	}
+ cout<<"----------------------"<<endl;
+ cout<<"el total es: "<<tot<<endl;
+}
